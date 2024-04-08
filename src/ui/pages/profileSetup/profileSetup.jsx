@@ -78,6 +78,7 @@ function ProfileSetup() {
               onClick={() => {
                 window.location.href = '/Dashboard';
                 oncancel();
+                alert('Login Sucessfully')
               }}
             >
 
