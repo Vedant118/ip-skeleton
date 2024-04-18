@@ -22,7 +22,7 @@ const rows = [
   createData("Renewal Payment", "payment for Patent #12345", "12th Decenber 2024", 24),
 ];
 
-function CompletedTask() {
+function CompletedTask({tablecell}) {
   const [alignment, setAlignment] = React.useState("left");
 
   const handleAlignment = (event, newAlignment) => {
@@ -84,6 +84,7 @@ function CompletedTask() {
             >
               <TableRow>
                 <TableCell
+                className={tablecell}
                   sx={{
                     fontWeight: "bold",
                   }}

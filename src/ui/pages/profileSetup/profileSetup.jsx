@@ -5,6 +5,7 @@ import { Button, Stack } from "@mui/material";
 import { Check, Close } from "@mui/icons-material";
 import RWS from "../../../assets/rws-logo.webp"
 import "../../../App.css"
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 function ProfileSetup() {
@@ -12,7 +13,6 @@ function ProfileSetup() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordFilled, setPasswordFilled] = useState(false);
   const [confirmPasswordFilled, setConfirmPasswordFilled] = useState(false);
-
 
   const oncancel = () => {
     setPassword("");
@@ -76,9 +76,9 @@ function ProfileSetup() {
               }
               sx={{ width: "21ch" }}
               onClick={() => {
-                window.location.href = '/Dashboard';
+                window.location.href = '/dashboard';
                 oncancel();
-                alert('Login Sucessfully')
+                // alert('Login Sucessfully')
               }}
             >
 

@@ -1,3 +1,7 @@
+/* *{
+  box-sizing: border-box;
+  border: 1px solid green;
+} */
 body {
   margin: 0;
   padding: 0;
@@ -9,23 +13,21 @@ body {
   filter: blur(30px);
 }
 
-
-
 .profileForm {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    max-width: calc(100% - 40px);
-    padding: 50px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 3px;
-    gap: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  max-width: calc(100% - 40px);
+  padding: 50px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  gap: 60px;
 }
 
 .maincntr {
@@ -66,4 +68,41 @@ body {
 }
 .css-1ssnj02 {
   background-color: white !important;
+}
+
+.__floater__arrow {
+  left: -70px !important;
+}
+
+.Button {
+  padding-inline: 20px;
+  padding-block: 5px;
+  background-color: rgb(75,165,159) !important;
+  color: white !important;
+}
+.prevButton{
+  padding-inline: 20px;
+  padding-block: 5px;
+  background-color: rgb(210,212,218) !important;
+  color: white !important;
+}
+
+.ButtonContainer {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  /* bottom: -600px; */
+  justify-content: center;
+  z-index: 1;
+  margin-top: auto;
+}
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  min-width: 185px !important;
 }

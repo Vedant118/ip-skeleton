@@ -62,7 +62,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function TopBar() {
+export default function TopBar({className}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -172,6 +172,7 @@ export default function TopBar() {
         >
           <img src={Logo} alt="logo" height={46} width={161} />
           <Search
+          className={className}
             sx={{
               backgroundColor: "rgb(216, 230, 230)",
               boxShadow:
