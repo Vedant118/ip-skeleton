@@ -132,7 +132,7 @@ function Home() {
   };
 
   return isAuthenticated ? (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: "relative",backgroundColor:'grey' }}>
       <Button
         sx={{ color: "black" }}
         onClick={() => logout({ returnTo: window.location.origin })}

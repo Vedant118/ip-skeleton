@@ -11,12 +11,15 @@ import {
   AccessibilityOutlined,
   LogoutOutlined,
 } from "@mui/icons-material";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Sidebar() {
+  const {logout} = useAuth0()
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleItemClick = (item) => {
     setSelectedItem(item);
+    logout()
   };
 
   return (
@@ -55,8 +58,8 @@ function Sidebar() {
           <SidebarItem
             icon={<AnalyticsOutlined sx={{ color: "white"  }} />}
             text="My Analytics & Reports"
-            onItemClick={() => handleItemClick("My Analytics & Reports")}
-            selected={selectedItem === "My Analytics & Reports"}
+            onItemClick={() => handleItemClick("Analytics & Reports")}
+            selected={selectedItem === "Analytics & Reports"}
           />
           <Box sx={{
             width: "100%",

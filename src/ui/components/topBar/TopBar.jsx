@@ -21,6 +21,8 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MailIcon from "@mui/icons-material/Mail";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import Logo from "../../../assets/logo.png";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Button } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -62,15 +64,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function TopBar({className}) {
+export default function TopBar({ className }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const { user } = useAuth0();
+
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
+    // window.location.href = '/profile_setting';
   };
 
   const handleMobileMenuClose = () => {
@@ -87,6 +92,7 @@ export default function TopBar({className}) {
   };
 
   const menuId = "primary-search-account-menu";
+
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -102,9 +108,80 @@ export default function TopBar({className}) {
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
+      sx={{
+        padding: "10px",
+      }}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 2,
+        }}
+      >
+        <img
+          src={user?.picture}
+          alt="User Profile"
+          width={60}
+          height={60}
+          style={{ borderRadius: "50%", alignItems: "center" }}
+        />
+        <Typography variant="p" sx={{ fontWeight: "600" }}>
+          Mr. John Doe
+        </Typography>
+        <Button
+          variant="outlined"
+          sx={{
+            borderColor: "black",
+            color: "rgb(51 102 99)",
+            width: "145%",
+            fontSize: "12px",
+          }}
+        >
+          VIEW PROFILE
+        </Button>
+      </Box>
+      <MenuItem
+        onClick={() => {
+          handleMenuClose, (window.location.href = "/profile_setting");
+        }}
+        sx={{
+          padding: 0,
+          paddingBlock: 0.85,
+          marginInline: "-25px",
+        }}
+      >
+        Settings
+      </MenuItem>
+      <MenuItem
+        onClick={handleMenuClose}
+        sx={{
+          padding: 0,
+          paddingBlock: 0.85,
+          marginInline: "-25px",
+        }}
+      >
+        Help
+      </MenuItem>
+      <Box
+        sx={{
+          marginInline: "-30px",
+          height: "1px",
+          backgroundColor: "rgb(222 222 222)",
+        }}
+      />
+      <MenuItem
+        onClick={handleMenuClose}
+        sx={{
+          padding: 0,
+          paddingBlock: 0.85,
+          marginInline: "-25px",
+        }}
+      >
+        Logout
+      </MenuItem>
     </Menu>
   );
 
@@ -145,18 +222,6 @@ export default function TopBar({className}) {
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          size="large"
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
     </Menu>
   );
 
@@ -172,7 +237,7 @@ export default function TopBar({className}) {
         >
           <img src={Logo} alt="logo" height={46} width={161} />
           <Search
-          className={className}
+            className={className}
             sx={{
               backgroundColor: "rgb(216, 230, 230)",
               boxShadow:

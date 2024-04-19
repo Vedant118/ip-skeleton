@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: grey;
+  /* background-color: grey; */
 }
 .blurtheme {
   height: 100vh;
@@ -105,4 +105,11 @@ body {
 }
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
   min-width: 185px !important;
+}
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  padding-inline: 45px !important;
+}
+
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+  top: 50px !important;
 }
