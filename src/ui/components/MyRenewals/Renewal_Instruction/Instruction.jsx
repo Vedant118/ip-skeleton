@@ -4,17 +4,26 @@ import {
   TuneOutlined,
 } from "@mui/icons-material";
 import { Box, Button, Stack } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Buttongroup from "../../common/ButtonGroup";
 import RadioTable from "../../common/Table/RadioTable";
 import SplitButton from "../../common/SplitButton";
 import PaginationRounded from "../../common/Pagination";
+import Modal from "../../common/Modal";
 
 function Instruction() {
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <Box
-    sx={{position:'relative'}}
-    >
+    <Box sx={{ position: "relative" }}>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Button
           variant="outlined"
@@ -29,6 +38,7 @@ function Instruction() {
             variant="outlined"
             size="small"
             sx={{ borderColor: "#0F625D" }}
+            onClick={handleClickOpen}
           >
             <SaveAltRounded sx={{ color: "#0F625D" }} />
           </Button>
@@ -50,9 +60,12 @@ function Instruction() {
         }}
       >
         <Buttongroup
+        
           sx={{
             borderColor: "#0F625D",
-            color: "#0F625D",
+            // color:'#000000',
+            paddingBlock:'8px',
+            paddingInline:'10px',
           }}
           button_one={"Renewals Past Due Date"}
           button_two={"Urgent Due Renewals"}
@@ -75,22 +88,21 @@ function Instruction() {
           <ReorderSharp />
         </Box>
       </Box>
-      <Box sx={{marginTop:'20px'}}>
-        <RadioTable/>
+      <Box sx={{ marginTop: "20px" }}>
+        <RadioTable />
       </Box>
       <Box
-      sx={{
-        display:'flex',
-        justifyContent:'space-between',
-        alignItems:'center',
-        marginTop:'6rem'
-      }}
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginTop: "6rem",
+        }}
       >
-        <SplitButton
-        title='RENEW (X)'
-        />
-        <PaginationRounded/>
+        <SplitButton title="RENEW (X)" />
+        <PaginationRounded />
       </Box>
+      <Modal handleClose={handleClose} open={open} />
     </Box>
   );
 }

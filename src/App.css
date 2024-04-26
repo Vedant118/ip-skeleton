@@ -107,13 +107,28 @@ body {
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
   min-width: 185px !important;
 }
-/* .css-6hp17o-MuiList-root-MuiMenu-list {
-  padding-inline: 45px !important;
-} */
-.css-r8u8y9 {
+.css-6hp17o-MuiList-root-MuiMenu-list {
   padding-inline: 45px !important;
 }
+/* .css-r8u8y9 {
+  padding-inline: 45px !important;
+} */
 
 .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
   top: 50px !important;
+}
+
+.even-row{
+  background-color: #EAFDFC;
+}
+
+.odd-row{
+  background-color: #ffffff;
+
+}
+.custom-header{
+  background-color: #D3ECEA;
+}
+.MuiDataGrid-columnHeaderCheckbox{
+  background-color: #D3ECEA;
 }
