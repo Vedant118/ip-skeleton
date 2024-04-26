@@ -107,7 +107,10 @@ body {
 .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
   min-width: 185px !important;
 }
-.css-6hp17o-MuiList-root-MuiMenu-list {
+/* .css-6hp17o-MuiList-root-MuiMenu-list {
+  padding-inline: 45px !important;
+} */
+.css-r8u8y9 {
   padding-inline: 45px !important;
 }
 
