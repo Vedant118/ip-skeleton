@@ -12,12 +12,17 @@ import {
   LogoutOutlined,
 } from "@mui/icons-material";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
+  const navigate = useNavigate();
   const {logout} = useAuth0()
   const [selectedItem, setSelectedItem] = useState(null);
 
   const handleItemClick = (item) => {
+    setSelectedItem(item);
+  };
+  const handleLogout = (item) => {
     setSelectedItem(item);
     logout()
   };
@@ -52,7 +57,7 @@ function Sidebar() {
           <SidebarItem
             icon={<RepeatOutlined sx={{ color: "white"  }} />}
             text="My Renewals"
-            onItemClick={() => handleItemClick("My Renewals")}
+            onItemClick={() => {handleItemClick("My Renewals"),navigate('/renewals')}}
             selected={selectedItem === "My Renewals"}
           />
           <SidebarItem
@@ -110,7 +115,7 @@ function Sidebar() {
           <SidebarItem
             icon={<LogoutOutlined sx={{ color: "white"  }} />}
             text="Logout"
-            onItemClick={() => handleItemClick("Logout")}
+            onItemClick={() => handleLogout("Logout")}
             selected={selectedItem === "Logout"}
           />
         </Box>

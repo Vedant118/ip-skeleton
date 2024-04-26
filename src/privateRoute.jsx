@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProfileSetup from "./ui/pages/profileSetup/profileSetup";
 import Page from "./ui/pages/homePage/Page";
 import ProfileSetting from "./ui/components/profileSetting/ProfileSetting";
+import Renewals from "./ui/components/MyRenewals/Renewals";
 const Profile = React.lazy(() => import("./ui/pages/profileSetup/profileSetup"));
 const Home = React.lazy(() => import("./ui/pages/homePage/Home"));
 
@@ -43,8 +44,15 @@ function PrivateRoute() {
             path="/profile_setting"
             element={
               <React.Suspense fallback={<div>Loading...</div>}>
-                {/* <Dashboard /> */}
                 <ProfileSetting/>
+              </React.Suspense>
+            }
+          />
+          <Route
+            path="/renewals"
+            element={
+              <React.Suspense fallback={<div>Loading...</div>}>
+                <Renewals/>
               </React.Suspense>
             }
           />
